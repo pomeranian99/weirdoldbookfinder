@@ -7,11 +7,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "fastify": "^3.23.1",
-    "fastify-formbody": "^5.1.0",
-    "fastify-static": "^4.5.0",
     "handlebars": "^4.7.7",
-    "point-of-view": "^4.15.2"
+    "point-of-view": "^4.15.2",
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "12.x"
