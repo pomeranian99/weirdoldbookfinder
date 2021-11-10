@@ -1,4 +1,5 @@
 dependencies:
+  axios: 0.24.0
   express: 4.17.1
   handlebars: 4.7.7
   point-of-view: 4.15.2
@@ -16,6 +17,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+  /axios/0.24.0:
+    dependencies:
+      follow-redirects: 1.14.5
+    dev: false
+    resolution:
+      integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
   /body-parser/1.19.0:
     dependencies:
       bytes: 3.1.0
@@ -154,6 +161,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.14.5:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
   /forwarded/0.2.0:
     dev: false
     engines:
@@ -450,6 +463,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  axios: ^0.24.0
   express: ^4.17.1
   handlebars: ^4.7.7
   point-of-view: ^4.15.2
