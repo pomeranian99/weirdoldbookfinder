@@ -14,8 +14,7 @@ google.books.setOnLoadCallback(initialize);
 buttonPushed.addEventListener('click', function(e) {
     // get the search term
     const searchTerm = document.querySelector('#searchText').value;
-    console.log("I got pushed");
-    console.log(searchTerm);
+    console.log("Button got pushed");
     document.getElementById('searchText').value = '';
     runSearch(searchTerm);
 });
