@@ -15,7 +15,7 @@ app.get("/", async function(request, response) {
 app.get("/bookme", async function(request, response) {
   console.log("the bookme URL has fired");
   let results = await bookMe();
-  response.send(results.data.items[0]);
+  response.send(results.data.items[0].id);
 });
 
 

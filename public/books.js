@@ -6,7 +6,7 @@ const buttonPushed = document.querySelector('#searchButton');
 
 function initialize() {
     var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-    viewer.load('ISBN:0738531367');
+    viewer.load('6sLzOsk9F50C');
 }
 
 google.books.setOnLoadCallback(initialize);
