@@ -15,15 +15,17 @@ google.books.setOnLoadCallback(initialize);
 
 buttonPushed.addEventListener("click", function(e) {
   // get the search term
-  const searchTerm = document.querySelector("#searchText").value;
+  const searchValue = document.querySelector("#searchText").value;
   console.log("Button got pushed");
   document.getElementById("searchText").value = "";
+  let searchTerm = searchValue.replace(" ", "_");
   runSearch(searchTerm);
 });
 
 function runSearch(searchTerm) {
   console.log("yeah bruh the term I got was " + searchTerm);
-  
+ 
+  /*
   fetch()
     .then(function(response) {
       return response.text();
@@ -31,4 +33,5 @@ function runSearch(searchTerm) {
     .then(function(text) {
       console.log(text);
     });
+    */
 }
