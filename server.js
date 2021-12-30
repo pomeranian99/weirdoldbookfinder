@@ -22,9 +22,9 @@ app.get("/bookme", async function(request, response) {
 
 app.get("/bookMe", async function(request, response) {
   console.log("the bookme URL has fired");
-  let queryPhrase = request.query.findMe;
-  console.log(queryPhrase);
-  let results = await bookMe();
+  let queryPhrase = request.query.words;
+  console.log("The query I got was ..." + queryPhrase);
+  let results = await bookMe(queryPhrase);
   response.send(results.data.items[0].id);
 });
 
@@ -34,10 +34,10 @@ const listener = app.listen(process.env.PORT, () => {
 });
 
 
-async function bookMe() {
+async function bookMe(x) {
   console.log("the bookMefunction has fired");
   try {
-    return await axios.get('https://www.googleapis.com/books/v1/volumes?q=machinery');
+    return await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + x);
   } catch (err) {
     console.error(err);
   }
