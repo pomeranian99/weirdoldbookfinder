@@ -9,7 +9,7 @@ function initialize() {
     viewer.load('6sLzOsk9F50C');
 }
 
-google.books.setOnLoadCallback(initialize);
+  google.books.setOnLoadCallback(initialize);
 
 buttonPushed.addEventListener('click', function(e) {
     // get the search term
