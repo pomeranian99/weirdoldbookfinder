@@ -13,7 +13,6 @@ function initialize() {
 google.books.setOnLoadCallback(initialize);
 
 buttonPushed.addEventListener("click", function(e) {
-  // get the search term
   const searchValue = document.querySelector("#searchText").value;
   document.getElementById("searchText").value = "";
   let searchTerm = searchValue.replace(/ /g, "+");
