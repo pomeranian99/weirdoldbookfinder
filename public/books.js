@@ -8,7 +8,6 @@ function initialize() {
     document.getElementById("viewerCanvas")
   );
   viewer.load("xyYoAAAAYAAJ");
-  // viewer.load("6sLzOsk9F50C");
 }
 
 google.books.setOnLoadCallback(initialize);
@@ -23,7 +22,8 @@ buttonPushed.addEventListener("click", function(e) {
 
 function runSearch(searchTerm) {
   console.log("yeah bruh the term I got was " + searchTerm);
-  let url = "https://weird-old-book-finder.glitch.me/bookMe?words=" + searchTerm;
+  let url =
+    "https://weird-old-book-finder.glitch.me/bookMe?words=" + searchTerm;
   console.log("I'm gonna send the url query ... " + url);
 
   fetch(url)
@@ -32,5 +32,9 @@ function runSearch(searchTerm) {
     })
     .then(function(text) {
       console.log(text);
+      var viewer = new google.books.DefaultViewer(
+        document.getElementById("viewerCanvas")
+      );
+      viewer.load(text);
     });
 }
