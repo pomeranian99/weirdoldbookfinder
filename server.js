@@ -22,9 +22,12 @@ app.get("/bookme", async function(request, response) {
 
 app.get("/bookme", async function(request, response) {
   console.log("the bookme URL has fired");
+  let queryPhrase = request.query.findMe;
+  console.log(queryPhrase);
   let results = await bookMe();
   response.send(results.data.items[0].id);
 });
+
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
