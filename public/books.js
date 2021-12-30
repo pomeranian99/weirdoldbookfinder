@@ -18,12 +18,13 @@ buttonPushed.addEventListener("click", function(e) {
   const searchValue = document.querySelector("#searchText").value;
   console.log("Button got pushed");
   document.getElementById("searchText").value = "";
-  let searchTerm = searchValue.replace(" ", "_");
+  let searchTerm = searchValue.replace(/ /g, "_");
   runSearch(searchTerm);
 });
 
 function runSearch(searchTerm) {
   console.log("yeah bruh the term I got was " + searchTerm);
+  let url = "https://weird-old-book-finder.glitch.me/bookMe"
  
   /*
   fetch()

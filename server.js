@@ -20,7 +20,7 @@ app.get("/bookme", async function(request, response) {
 });
 */
 
-app.get("/bookme", async function(request, response) {
+app.get("/bookMe", async function(request, response) {
   console.log("the bookme URL has fired");
   let queryPhrase = request.query.findMe;
   console.log(queryPhrase);
