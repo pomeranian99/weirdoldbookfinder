@@ -4,15 +4,15 @@ google.books.load();
 const buttonPushed = document.querySelector("#searchButton");
 
 
-function initialize(y) {
+function initialize() {
   var viewer = new google.books.DefaultViewer(
     document.getElementById("viewerCanvas")
   );
-  viewer.load(y);
+  viewer.load("xyYoAAAAYAAJ");
 }
 
 
-google.books.setOnLoadCallback(initialize("xyYoAAAAYAAJ"));
+google.books.setOnLoadCallback(initialize);
 
 buttonPushed.addEventListener("click", function(e) {
   const searchValue = document.querySelector("#searchText").value;
@@ -35,7 +35,7 @@ function runSearch(searchTerm) {
       console.log(text);
        var viewer = new google.books.DefaultViewer(
         document.getElementById("viewerCanvas")
-       );
+        );
       viewer.load(text);
     });
 }
