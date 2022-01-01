@@ -14,7 +14,14 @@ app.get("/", async function(request, response) {
 app.get("/bookMe", async function(request, response) {
   let queryPhrase = request.query.words;
   let results = await bookMe(queryPhrase);
-  console.log(results.data.items);
+  // console.log(results.data.items);
+  let pre1924Books = [];
+  for (let i = 0; i < length.results.data.items; i++) {
+    if (Number(results.data.items[i].volumeInfo.publishedDate) < 1924) {
+      pre1924Books.push(results.data.items[i].id)
+    }
+  }
+  console.log(pre1924Books);
   response.send(results.data.items[0].id);
 });
 
