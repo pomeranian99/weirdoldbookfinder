@@ -14,6 +14,7 @@ app.get("/", async function(request, response) {
 app.get("/bookMe", async function(request, response) {
   let queryPhrase = request.query.words;
   let results = await bookMe(queryPhrase);
+  console.log(results.data.items);
   response.send(results.data.items[0].id);
 });
 
