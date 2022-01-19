@@ -6,7 +6,15 @@ head
 .row
   h1 Weird Old Book Finder
   h2 #{headline}
+
 .row
+  form(action='/add_movie' method='POST')
+  .theForm
+    | title: 
+    input(type='text' name='searchText' value='')
+  input(type='submit' value='Submit')
+
+// .row
   input#searchText(type='text')
   button#searchButton(type='button') Search
 .row
@@ -34,6 +42,8 @@ script(defer='').
   google.books.setOnLoadCallback(initialize);
   
   
+  
+  /*
   // if the button is pushed, grab the search term and send it to the server
   buttonPushed.addEventListener("click", function (e) {
     const searchValue = document.querySelector("#searchText").value;
@@ -59,3 +69,4 @@ script(defer='').
     viewer.load(text);
     });
   }
+  */
