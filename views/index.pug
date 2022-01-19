@@ -18,16 +18,23 @@ script(defer='').
   // create an instance of the google books viewer
   google.books.load();
   
-  // when the button is 
+  // create a selector for the button 
   const buttonPushed = document.querySelector("#searchButton");
+  
+  // the initializer that gets a book viewer displayed
   function initialize() {
     var viewer = new google.books.DefaultViewer(
     document.getElementById("viewerCanvas")
     );
+    // here's where we specify which book to display
     viewer.load("xyYoAAAAYAAJ");
   }
+  
+  // when the page loads, run the initializer
   google.books.setOnLoadCallback(initialize);
   
+  
+  // if the button is pushed, grab the search term and send it to the servre
   buttonPushed.addEventListener("click", function (e) {
     const searchValue = document.querySelector("#searchText").value;
     document.getElementById("searchText").value = "";
