@@ -15,9 +15,8 @@ app.get("/", async function(request, response) {
   response.send("index.html");
 });
 
-
 app.get("/pugtext", async function(request, response) {
-  response.render("index", { headline: "A pug page!"});
+  response.render("index", { headline: "A pug page!", bookRetrieved: "xyYoAAAAYAAJ"});
 });
 
 

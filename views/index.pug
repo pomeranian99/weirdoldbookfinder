@@ -23,6 +23,9 @@ head
 // send in the clowns, sorry i mean the javascript
 script(defer='').
 
+  // load our variables 
+  var theBook = #{bookRetrieved};
+  console.log(theBook);
   // create an instance of the google books viewer
   google.books.load();
   
@@ -35,7 +38,7 @@ script(defer='').
     document.getElementById("viewerCanvas")
     );
     // here's where we specify which book to display
-    viewer.load("xyYoAAAAYAAJ");
+    viewer.load(theBook);
   }
   
   // when the page loads, run the initializer
