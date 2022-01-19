@@ -34,7 +34,7 @@ script(defer='').
   google.books.setOnLoadCallback(initialize);
   
   
-  // if the button is pushed, grab the search term and send it to the servre
+  // if the button is pushed, grab the search term and send it to the server
   buttonPushed.addEventListener("click", function (e) {
     const searchValue = document.querySelector("#searchText").value;
     document.getElementById("searchText").value = "";
