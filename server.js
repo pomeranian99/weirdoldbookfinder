@@ -1,11 +1,17 @@
 const axios = require("axios");
 const express = require("express");
 const app = express();
+app.set("view engine", "pug");
 
 app.use(express.static("public"));
 
 app.get("/", async function(request, response) {
-  response.send("index.html");
+  response.send("index.html", { headline: "A pug page!"});
+});
+
+
+app.get("/pugtext", async function(request, response) {
+  response.render("index");
 });
 
 
