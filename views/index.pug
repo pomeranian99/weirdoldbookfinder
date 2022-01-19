@@ -1,22 +1,48 @@
-doctype html
-html(lang='en')
-  head
-    title Weird Old Book Finder
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    link(rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
-    link(rel="stylesheet" href="style.css")
-    link(rel="stylesheet" href="script.js")
-    link(href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet")
-  body
-  .container-fluid
-    .row
-      .col-sm-12.d-flex.justify-content-center.text-center.header-row
-        h1 #{headline}
-    .row
-      .col
-        p This is the text I statically placed.
-    
+doctype strict
+head
+  meta(http-equiv='content-type' content='text/html; charset=utf-8')
+  title Google Books Embedded Viewer API Example
+  script(type='text/javascript' src='https://www.google.com/books/jsapi.js')
+.row
+  h1 Weird Old Book Finder
+.row
+  input#searchText(type='text')
+  button#searchButton(type='button') Search
+.row
+  #viewerCanvas(style='width: 700px; height: 800px')
+  #viewer
+// send in the clowns, sorry i mean the javascript
+script(defer='').
+  // create an instance of the google books viewer
+  google.books.load();
+  const buttonPushed = document.querySelector("#searchButton");
+  function initialize() {
+  var viewer = new google.books.DefaultViewer(
+  document.getElementById("viewerCanvas")
+  );
+  viewer.load("xyYoAAAAYAAJ");
+  }
+  google.books.setOnLoadCallback(initialize);
+  buttonPushed.addEventListener("click", function (e) {
+  const searchValue = document.querySelector("#searchText").value;
+  document.getElementById("searchText").value = "";
+  let searchTerm = searchValue.replace(/ /g, "+");
+  runSearch(searchTerm);
+  });
+  function runSearch(searchTerm) {
+  console.log("yeah bruh the term I got was " + searchTerm);
+  let url =
+  "https://weird-old-book-finder.glitch.me/bookMe?words=" + searchTerm;
+  console.log("I'm gonna send the url query ... " + url);
+  fetch(url)
+  .then(function (response) {
+  return response.text();
+  })
+  .then(function (text) {
+  console.log(text);
+  var viewer = new google.books.DefaultViewer(
+  document.getElementById("viewerCanvas")
+  );
+  viewer.load(text);
+  });
+  }
