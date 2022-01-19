@@ -6,12 +6,12 @@ app.set("view engine", "pug");
 app.use(express.static("public"));
 
 app.get("/", async function(request, response) {
-  response.send("index.html", { headline: "A pug page!"});
+  response.send("index.html");
 });
 
 
 app.get("/pugtext", async function(request, response) {
-  response.render("index");
+  response.render("index", { headline: "A pug page!"});
 });
 
 
