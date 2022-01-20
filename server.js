@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+var errors;
+
 app.set("view engine", "pug");
 
 app.use(express.static("public"));
@@ -49,6 +51,7 @@ app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async 
     // otherwise, pick a random book from the results we got from Google books
     success = true;
     randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
+    console.log("We successfully found a book!");
   }
   response.render("index", { bookRetrieved: randoBook, success: success, errors: false });
 });
