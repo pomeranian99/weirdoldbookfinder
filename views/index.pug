@@ -7,9 +7,11 @@ head
   h1 Weird Old Book Finder
   h2 #{headline}
 
+// couldn't get this form below working in pug, so I wrote in using regular HTML, like
+// an *animal*
 .row
-  <form method="POST" action="/getBook">
-  <input type="text" name="searchText" value="''"><br>
+  <form method="POST" action="/">
+  <input type="text" name="searchText" value=""><br>
   <input type="submit" value="Submit">
 </form> 
 
@@ -43,32 +45,3 @@ script(defer='').
   google.books.setOnLoadCallback(initialize);
   
   
-  
-  /*
-  // if the button is pushed, grab the search term and send it to the server
-  buttonPushed.addEventListener("click", function (e) {
-    const searchValue = document.querySelector("#searchText").value;
-    document.getElementById("searchText").value = "";
-    let searchTerm = searchValue.replace(/ /g, "+");
-    runSearch(searchTerm);
-  });
-  
-  function runSearch(searchTerm) {
-    console.log("yeah bruh the term I got was " + searchTerm);
-    let url =
-    "https://weird-old-book-finder.glitch.me/bookMe?words=" + searchTerm;
-    console.log("I'm gonna send the url query ... " + url);
-    fetch(url)
-    .then(function (response) {
-      return response.text();
-      })
-    .then(function (text) {
-    console.log(text);
-    var viewer = new google.books.DefaultViewer(
-    document.getElementById("viewerCanvas")
-    );
-    viewer.load(text);
-    });
-  }
-  */
-
