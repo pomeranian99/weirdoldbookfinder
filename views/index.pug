@@ -9,20 +9,22 @@ head
   link(href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet")
 
 body
-.row
-  h1 Weird Old Book Finder
-// couldn't get this form below working in pug, so I wrote in using regular HTML, like
-// an *animal*
-.row
-  .formStuff
-    <form method="POST" action="/">
-    <input type="text" class="textInput" name="searchText" value=""><br>
-    <input type="submit" value="Submit">
-</form> 
+.container
+  .row
+    .col.header
+      h1 Weird Old Book Finder
+  .row
+    .formStuff
+      <form method="POST" action="/">
+      <div id="formGroup">
+        <input type="text" class="textInput" name="searchText" value="">
+        <input type="submit" value="Submit">
+      </div>
+  </form> 
 
-.row
-  #viewerCanvas
-  #viewer 
+    .row
+      #viewerCanvas
+      #viewer 
   
   
 // send in the clowns, sorry i mean the javascript
