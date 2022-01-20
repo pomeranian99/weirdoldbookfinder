@@ -4,6 +4,7 @@ h1 {
   font-family: 'IM Fell English', serif;
 }
 
-.form {
-  font-family: 'IM Fell English', serif;
+#viewerCanvas {
+  width: 700px;
+  height: 800px;
 }
