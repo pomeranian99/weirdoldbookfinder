@@ -25,6 +25,7 @@ app.get("/", async function(request, response) {
 app.post("/", async function(request, response) {
   // probably should have put all this logic into a separate function instead of leaving 
   // it here in the routing but i'm lazy and hey it works lol
+  let success = false;
   console.log("we got a bookme query!");
   console.log(request.body);
   let queryWeGot = request.body.searchText;
@@ -38,8 +39,14 @@ app.post("/", async function(request, response) {
     }
   }
   console.log(pre1924Books);
-  let randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
-  response.render("index", { bookRetrieved: randoBook });
+  var randoBook = "xyYoAAAAYAAJ"
+  if (pre1924Books.length == 0) {
+    randoBook = "xyYoAAAAYAAJ";
+  } else {
+    success = true;
+    let randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
+  }
+  response.render("index", { bookRetrieved: randoBook, success: success });
 });
 
 
