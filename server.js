@@ -12,17 +12,17 @@ app.set("view engine", "pug");
 
 app.use(express.static("public"));
 
-app.get("/", async function(request, response) {
-  response.send("index.html");
-});
+// app.get("/", async function(request, response) {
+//  response.send("index.html");
+// });
 
-app.get("/pugtext", async function(request, response) {
+app.get("/", async function(request, response) {
   console.log("We got a pugtext query");
   response.render("index", { headline: "A pug page!", bookRetrieved: "xyYoAAAAYAAJ"});
 });
 
 
-app.post("/bookMe", async function(request, response) {
+app.post("/", async function(request, response) {
   // probably should have put all this logic into a separate function instead of leaving 
   // it here in the routing but i'm lazy and hey it works lol
   console.log("we got a bookme query!");
