@@ -2,6 +2,7 @@ const axios = require("axios");
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 app.use(bodyParser.json());
 app.use(bodyParser.text({type: 'text/xml'}));
 app.use(bodyParser.urlencoded({
@@ -18,7 +19,13 @@ app.get("/", async function(request, response) {
 });
 
 
-app.post("/", async function(request, response) {
+app.post("/", check('searchText').isAlphanumeric(), async function(request, response) {
+  // first, find any validation errors
+  const errors = validationResult(request);
+  if (!errors.isEmpty()) {
+      return response.render("index", { bookRetrieved: "xyYoAAAAYAAJ", success: success });
+    }
+  
   // I should have put all this logic into a separate function instead of leaving 
   // it here in the routing like a messy basement but i'm lazy and hey it works lol
   let success = false;
