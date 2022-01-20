@@ -8,18 +8,18 @@ head
   h2 #{headline}
 
 .row
-  form(action='https://weird-old-book-finder2.glitch.me/bookMe' method='POST')
+  form(method='POST' action='bookMe' )
   .theForm
     | title: 
     input(type='text' name='searchText' value='')
-    input(type='submit' value='Submit')
+    // input (type='submit' value='Submit')
+    button.btn.btn-primary(type='button' value='Submit') Submit
 
-// .row
-  input#searchText(type='text')
-  button#searchButton(type='button') Search
 .row
   #viewerCanvas(style='width: 700px; height: 800px')
   #viewer 
+  
+  
 // send in the clowns, sorry i mean the javascript
 script(defer='').
 
