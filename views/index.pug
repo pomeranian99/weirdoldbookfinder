@@ -46,4 +46,10 @@ script(defer='').
   // when the page loads, run the initializer
   google.books.setOnLoadCallback(initialize);
   
+   if (!success) {
+    alert("Alas, I couldn't find any weird old books matching your search query.");
+  }
+  
+  
+  
   

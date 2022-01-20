@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 app.get("/", async function(request, response) {
   console.log("We got a pugtext query");
-  response.render("index", { headline: "A pug page!", bookRetrieved: "xyYoAAAAYAAJ"});
+  response.render("index", { headline: "A pug page!", bookRetrieved: "xyYoAAAAYAAJ", success: true});
 });
 
 
