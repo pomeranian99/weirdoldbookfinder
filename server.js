@@ -19,13 +19,14 @@ app.get("/", async function(request, response) {
 
 
 app.post("/", async function(request, response) {
-  // probably should have put all this logic into a separate function instead of leaving 
-  // it here in the routing but i'm lazy and hey it works lol
+  // I should have put all this logic into a separate function instead of leaving 
+  // it here in the routing like a messy basement but i'm lazy and hey it works lol
   let success = false;
   let queryWeGot = request.body.searchText;
   let queryPhrase = queryWeGot.replace(/ /g, "+")
   let results = await bookMe(queryPhrase);
   let pre1924Books = [];
+  // pull out only the books published before 1924
   for (let i = 0; i < results.data.items.length; i++) {
     if (Number(results.data.items[i].volumeInfo.publishedDate) < 1924) {
       pre1924Books.push(results.data.items[i].id)
