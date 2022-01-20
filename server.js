@@ -19,12 +19,12 @@ app.get("/", async function(request, response) {
 });
 
 
-app.post("/", check('searchText').isAlphanumeric(), async function(request, response) {
+app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async function(request, response) {
   // first, find any validation errors
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
       console.log("error -- query was not alphanumeric!");
-      return response.render("index", { bookRetrieved: "xyYoAAAAYAAJ", errors: true, success: true });
+      return response.render("index", { bookRetrieved: "xyYoAAAAYAAJ", errors: true, success: true});
     }
   
   // I should have put all this logic into a separate function instead of leaving 
@@ -50,7 +50,7 @@ app.post("/", check('searchText').isAlphanumeric(), async function(request, resp
     success = true;
     randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
   }
-  response.render("index", { bookRetrieved: randoBook, success: success });
+  response.render("index", { bookRetrieved: randoBook, success: success, errors: false });
 });
 
 
