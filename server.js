@@ -32,9 +32,11 @@ app.post("/", async function(request, response) {
     }
   }
   let randoBook;
+  // if we get *no* results from google books, then return the 'hunting and fishing' book
   if (pre1924Books.length < 1) {
     randoBook = "xyYoAAAAYAAJ";
   } else {
+    // otherwise, pick a random book from the results we got from Google books
     success = true;
     randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
   }
