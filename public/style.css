@@ -1,7 +1,5 @@
-
-
 h1 {
-  font-family: 'IM Fell English', serif;
+  font-family: "IM Fell English", serif;
   font-size: 6vw;
   margin-left: -2vw;
 }
@@ -18,9 +16,22 @@ h1 {
 
 body {
   margin-top: 3vh;
-  margin-left: 2vw;
+  margin-left: 10vw;
 }
 
 input[type="text"] {
   border-radius: 5px;
+  max-height: 5px;
+}
+
+html {
+  background-color: #c1c1c1;
+  opacity: 0.2;
+  background-image: linear-gradient(135deg, #000000 25%, transparent 25%),
+    linear-gradient(225deg, #000000 25%, transparent 25%),
+    linear-gradient(45deg, #000000 25%, transparent 25%),
+    linear-gradient(315deg, #000000 25%, #c1c1c1 25%);
+  background-position: 10px 0, 10px 0, 0 0, 0 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
 }
