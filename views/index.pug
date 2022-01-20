@@ -8,21 +8,29 @@ head
   h2 #{headline}
 
 .row
-  form(method='POST' action='/bookMe' )
+  <form method="POST" action="/bookMe">
+  <input type="text" name="searchText" value="''"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+//  form(method='POST' action='/bookMe' )
   .theForm
     | title: 
     input(type='text' name='searchText' value='')
     // input (type='submit' value='Submit')
     button.btn.btn-primary(type='button' value='Submit') Submit
 
-.row
-  #viewerCanvas(style='width: 700px; height: 800px')
-  #viewer 
+
+//.row
+  //#viewerCanvas(style='width: 700px; height: 800px')
+  // #viewer 
   
   
 // send in the clowns, sorry i mean the javascript
 script(defer='').
 
+  /*
   // load our variables 
   var theBook = "#{bookRetrieved}";
   console.log(theBook);
@@ -73,3 +81,4 @@ script(defer='').
     });
   }
   */
+

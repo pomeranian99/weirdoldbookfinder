@@ -26,6 +26,7 @@ app.post("/bookMe", async function(request, response) {
   // it here in the routing but i'm lazy and hey it works lol
   console.log("we got a bookme query!");
   let queryWeGot = request.query.searchText;
+  console
   let queryPhrase = queryWeGot.replace(/ /g, "+")
   let results = await bookMe(queryPhrase);
   let pre1924Books = [];
