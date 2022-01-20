@@ -3,11 +3,12 @@
 h1 {
   font-family: 'IM Fell English', serif;
   font-size: 6vw;
+  margin-left: -2vw;
 }
 
 .formStuff {
   margin-bottom: 2vh;
-  margin-left: -20px;
+  margin-left: -2vw;
 }
 
 #viewerCanvas {
@@ -19,3 +20,4 @@ body {
   margin-top: 3vh;
   margin-left: 2vw;
 }
+
