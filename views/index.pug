@@ -49,9 +49,16 @@ script(defer='').
   
   google.books.setOnLoadCallback(initialize);
   
-   if (!success) {
+    if (errors) {
+    alert("Sorry, you can only do queries that are alphanumeric -- letter and numbers only!");
+    } else {
+      if (!success) {
     alert("Alas, I couldn't find any weird old books matching your search query.");
-  }
+  } 
+    }
+   
+  
+  
   
   
   
