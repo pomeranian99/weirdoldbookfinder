@@ -8,11 +8,11 @@ head
   h2 #{headline}
 
 .row
-  form(action='/bookMe' method='POST')
+  form(action='https://weird-old-book-finder2.glitch.me/bookMe' method='POST')
   .theForm
     | title: 
     input(type='text' name='searchText' value='')
-  input(type='submit' value='Submit')
+    input(type='submit' value='Submit')
 
 // .row
   input#searchText(type='text')

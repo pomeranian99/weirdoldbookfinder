@@ -23,6 +23,7 @@ app.get("/pugtext", async function(request, response) {
 app.post("/bookMe", async function(request, response) {
   // probably should have put all this logic into a separate function instead of leaving 
   // it here in the routing but i'm lazy and hey it works lol
+  console.log("we got a bookme query!");
   let queryWeGot = request.query.searchText;
   let queryPhrase = queryWeGot.replace(/ /g, "+")
   let results = await bookMe(queryPhrase);
