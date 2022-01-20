@@ -1,8 +1,10 @@
 doctype strict
 head
   meta(http-equiv='content-type' content='text/html; charset=utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Weird Old Book Finder
   script(type='text/javascript' src='https://www.google.com/books/jsapi.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel="stylesheet" href="style.css")
   link(href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet")
 
@@ -12,9 +14,10 @@ body
 // couldn't get this form below working in pug, so I wrote in using regular HTML, like
 // an *animal*
 .row
-  <form method="POST" action="/">
-  <input type="text" class="textInput" name="searchText" value=""><br>
-  <input type="submit" value="Submit">
+  .formStuff
+    <form method="POST" action="/">
+    <input type="text" class="textInput" name="searchText" value=""><br>
+    <input type="submit" value="Submit">
 </form> 
 
 .row

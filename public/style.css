@@ -6,5 +6,10 @@ h1 {
 
 #viewerCanvas {
   width: 700px;
-  height: 800px;
+  height: 700px;
+  margin: auto
+}
+
+.formStuff {
+  
 }
