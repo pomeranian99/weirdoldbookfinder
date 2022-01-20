@@ -20,6 +20,7 @@ app.get("/", async function(request, response) {
 });
 
 
+// validate that the search request is alphanumeric only, with whitespace and apostrophes allowed
 app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async function(request, response) {
   // first, find any validation errors
   const errors = validationResult(request);
