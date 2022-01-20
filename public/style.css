@@ -21,3 +21,6 @@ body {
   margin-left: 2vw;
 }
 
+input[type="text"] {
+  border-radius: 5px;
+}
