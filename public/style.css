@@ -25,3 +25,16 @@ input[type="text"] {
   border-radius: 5px;
   max-height: 5px;
 }
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-family: "IM Fell English", serif;
+    font-size: 8vw;
+    margin-left: -2vw;
+  }
+
+  .formStuff {
+    margin-bottom: 2vh;
+    margin-left: -5vw;
+  }
+}
