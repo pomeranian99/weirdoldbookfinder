@@ -17,7 +17,7 @@ body
       <form method="POST" action="/">
       .form-group
         <div id="formGroup">
-        <input type="text" class="textInput form-control w-50 p-3" id="inputdefault" name="searchText" value="" placeholder="Type your query!" autofocus/>
+        <input type="text" class="textInput form-control w-50 p-3" id="inputdefault" maxlength="30" name="searchText" value="" placeholder="Type your query!" autofocus/>
         </div>
         </form> 
 
@@ -31,18 +31,14 @@ body
 // send in the clowns, sorry i mean the javascript
 script(defer='').
 
-  // load our variables 
   var theBook = "#{bookRetrieved}";
   var success = #{success};
   console.log(success);
   console.log(theBook);
+  
   // create an instance of the google books viewer
   google.books.load();
-  
-  // create a selector for the button 
-  const buttonPushed = document.querySelector("#searchButton");
-  
-  // the initializer that gets a book viewer displayed
+    
   function initialize() {
     var viewer = new google.books.DefaultViewer(
     document.getElementById("viewerCanvas")
@@ -51,7 +47,6 @@ script(defer='').
     viewer.load(theBook);
   }
   
-  // when the page loads, run the initializer
   google.books.setOnLoadCallback(initialize);
   
    if (!success) {
