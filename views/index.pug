@@ -25,6 +25,8 @@ script(defer='').
 
   // load our variables 
   var theBook = "#{bookRetrieved}";
+  var success = #{success};
+  console.log(success);
   console.log(theBook);
   // create an instance of the google books viewer
   google.books.load();

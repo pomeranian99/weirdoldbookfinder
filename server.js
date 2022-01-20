@@ -1,7 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.text({type: 'text/xml'}));
 app.use(bodyParser.urlencoded({
@@ -11,10 +11,6 @@ app.use(bodyParser.urlencoded({
 app.set("view engine", "pug");
 
 app.use(express.static("public"));
-
-// app.get("/", async function(request, response) {
-//  response.send("index.html");
-// });
 
 app.get("/", async function(request, response) {
   console.log("We got a pugtext query");
@@ -26,10 +22,7 @@ app.post("/", async function(request, response) {
   // probably should have put all this logic into a separate function instead of leaving 
   // it here in the routing but i'm lazy and hey it works lol
   let success = false;
-  console.log("we got a bookme query!");
-  console.log(request.body);
   let queryWeGot = request.body.searchText;
-  console.log("the query we got is ..." + queryWeGot);
   let queryPhrase = queryWeGot.replace(/ /g, "+")
   let results = await bookMe(queryPhrase);
   let pre1924Books = [];
@@ -38,13 +31,12 @@ app.post("/", async function(request, response) {
       pre1924Books.push(results.data.items[i].id)
     }
   }
-  console.log(pre1924Books);
-  var randoBook = "xyYoAAAAYAAJ"
-  if (pre1924Books.length == 0) {
+  let randoBook;
+  if (pre1924Books.length < 1) {
     randoBook = "xyYoAAAAYAAJ";
   } else {
     success = true;
-    let randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
+    randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
   }
   response.render("index", { bookRetrieved: randoBook, success: success });
 });
