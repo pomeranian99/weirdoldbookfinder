@@ -17,3 +17,7 @@ h1 {
   height: 700px;
 }
 
+body {
+  margin-top: 3vh;
+  margin-left: 2vw;
+}
