@@ -2,7 +2,6 @@
 
 h1 {
   font-family: 'IM Fell English', serif;
-  text-align:center;
 }
 
 .header {
@@ -10,16 +9,11 @@ h1 {
 }
 
 #formGroup {
-  margin: auto;
-  width: 25%;
   /* background-color: green; */
 }
 
 #viewerCanvas {
   width: 700px;
   height: 700px;
-  margin: auto
 }
 
-.formStuff {
-}
