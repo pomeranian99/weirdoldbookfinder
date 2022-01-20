@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
+app.use(bodyParser.text({type: 'text/xml'}));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -25,8 +26,9 @@ app.post("/bookMe", async function(request, response) {
   // probably should have put all this logic into a separate function instead of leaving 
   // it here in the routing but i'm lazy and hey it works lol
   console.log("we got a bookme query!");
-  let queryWeGot = request.query.searchText;
-  console
+  console.log(request.body);
+  let queryWeGot = request.body.searchText;
+  console.log("the query we got is ..." + queryWeGot);
   let queryPhrase = queryWeGot.replace(/ /g, "+")
   let results = await bookMe(queryPhrase);
   let pre1924Books = [];
