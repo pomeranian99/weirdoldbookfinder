@@ -24,7 +24,6 @@ app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async 
   // first, find any validation errors
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
-      // console.log("error -- query was not alphanumeric!");
       return response.render("index", { bookRetrieved: "xyYoAAAAYAAJ", errors: true, success: true});
     }
   
@@ -45,12 +44,10 @@ app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async 
   // if we get *no* results from google books, then return the 'hunting and fishing' book
   if (pre1924Books.length < 1) {
     randoBook = "xyYoAAAAYAAJ";
-    // console.log("we didn't find any books!");
   } else {
     // otherwise, pick a random book from the results we got from Google books
     success = true;
     randoBook = pre1924Books[Math.floor(Math.random() * pre1924Books.length)];
-    // console.log("We successfully found a book!");
   }
   response.render("index", { bookRetrieved: randoBook, success: success, errors: false });
 });
