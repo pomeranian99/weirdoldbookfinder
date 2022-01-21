@@ -29,7 +29,7 @@ app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async 
     }
   
   // I should have put all this logic into a separate function instead of leaving 
-  // it here in the routing like a messy basement but i'm lazy and hey it works lol
+  // it here in the routing like a messy basement but i'm laaaazy and hey it works lol
   let success = false;
   let queryWeGot = request.body.searchText;
   let queryPhrase = queryWeGot.replace(/ /g, "+")

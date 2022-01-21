@@ -14,6 +14,8 @@ body
   .container
     .row
       h1 Weird Old Book Finder
+      // I tried do this form in pug and could never get it to work, so I used
+      // regular old HTML, like an animal
     .row.formStuff
       <form method="POST" action="/">
       .form-group
@@ -44,6 +46,8 @@ body
 // send in the clowns, sorry i mean the javascript
 script(defer='').
 
+  // should I put all this javascript in a separate file? yes! when I'm less lazy ...
+  
   var theBook = "#{bookRetrieved}";
   var success = #{success};
   // for some reason having a semicolon after this next variable declaration
