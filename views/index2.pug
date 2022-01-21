@@ -1,0 +1,76 @@
+doctype strict
+head
+  meta(http-equiv='content-type' content='text/html; charset=utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Weird Old Book Finder
+  script(type='text/javascript' src='https://www.google.com/books/jsapi.js')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel="stylesheet" href="style.css")
+  link(href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet")
+  link(rel='icon' type='image/png' href='https://cdn.glitch.global/439f4142-99cc-4745-a422-a9dc2b1d9a6b/favicon-16x16.png?v=1642733136529')
+
+body
+  .container
+    .row
+      h1 Weird Old Book Finder
+      // I tried do this form in pug and could never get it to work, so I used
+      // regular old HTML, like an animal
+    
+      p Whoops -- the book finder is currently down for repairs.
+      p Sorry! Check back in an hour or so.
+    
+    #footer.row
+      .footer
+        p
+          | [ made by 
+          a(href='https://twitter.com/pomeranian99' target='_blank') clive
+          |               | here&apos;s 
+          a(href='https://clivethompson.medium.com/a-search-engine-that-finds-you-weird-old-books-3a74fbb5f3d4' target='_blank') why
+          |                | 
+          a(href='https://glitch.com/edit/#!/weird-old-book-finder?path=views%2Findex.pug%3A1%3A0') remix!
+          |               ]
+
+
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous')
+  
+  
+// send in the clowns, sorry i mean the javascript
+script(defer='').
+
+  // should I put all this javascript in a separate file? yes! when I'm less lazy ...
+  
+  var theBook = "#{bookRetrieved}";
+  var success = #{success};
+  // for some reason having a semicolon after this next variable declaration
+  // was causing an error in the browser? Who knows why, life is meaningless
+  var errors = #{errors}
+  console.log(success);
+  console.log(theBook);
+  
+  // create an instance of the google books viewer
+  google.books.load();
+    
+  function initialize() {
+    var viewer = new google.books.DefaultViewer(
+    document.getElementById("viewerCanvas")
+    );
+    // here's where we specify which book to display
+    viewer.load(theBook);
+  }
+  
+  google.books.setOnLoadCallback(initialize);
+  
+  if (!success && !errors){
+    alert("Alas, we didn't find any books for that query. Try another!");
+  }  
+  
+  if (success && errors) {
+    alert("Sorry, you can only type alphanumeric search phrases. Letters and numbers only!");
+  } 
+   
+  
+  
+  
+  
+  
