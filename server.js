@@ -20,7 +20,6 @@ app.get("/", async function(request, response) {
   // response.render("index2");
 });
 
-
 // validate that the search request is alphanumeric only, with whitespace and apostrophes allowed
 app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async function(request, response) {
   // first, find any validation errors
@@ -54,10 +53,12 @@ app.post("/", check('searchText').isAlphanumeric('en-US', {ignore: ' '}), async 
   response.render("index", { bookRetrieved: randoBook, success: success, errors: false });
 });
 
-
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
+// Change this part for Vercel deployment
+if (process.env.NODE_ENV !== 'production') {
+  const listener = app.listen(process.env.PORT || 3000, () => {
+    console.log("Your app is listening on port " + listener.address().port);
+  });
+}
 
 async function bookMe(x) {
   try {
@@ -66,3 +67,6 @@ async function bookMe(x) {
     console.error(err);
   }
 }
+
+// Export the app for Vercel
+module.exports = app;
