@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({
 var errors;
 
 app.set("view engine", "pug");
+app.set("views", __dirname + "/views");
 
 app.use(express.static("public"));
 
