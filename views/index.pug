@@ -53,12 +53,13 @@ script(defer='').
   // for some reason having a semicolon after this next variable declaration
   // was causing an error in the browser? Who knows why, life is meaningless
   var errors = #{errors}
+  var apiFailure = #{apiFailure}
   console.log(success);
   console.log(theBook);
-  
+
   // create an instance of the google books viewer
   google.books.load();
-    
+
   function initialize() {
     var viewer = new google.books.DefaultViewer(
     document.getElementById("viewerCanvas")
@@ -66,16 +67,18 @@ script(defer='').
     // here's where we specify which book to display
     viewer.load(theBook);
   }
-  
+
   google.books.setOnLoadCallback(initialize);
-  
-  if (!success && !errors){
+
+  if (apiFailure) {
+    alert("Sorry, the book search is having trouble reaching Google Books right now. Try again in a moment!");
+  } else if (!success && !errors){
     alert("Alas, we didn't find any books for that query. Try another!");
-  }  
-  
+  }
+
   if (success && errors) {
     alert("Sorry, you can only type alphanumeric search phrases. Letters and numbers only!");
-  } 
+  }
    
   
   
