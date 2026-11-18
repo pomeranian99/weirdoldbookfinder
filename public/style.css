@@ -6,7 +6,15 @@ h1 {
 
 .formStuff {
   margin-bottom: 2vh;
-  margin-left: -2vw;
+  /* match #viewerCanvas's width formula (80vw) exactly, anchored at the same
+     left edge, so the PDF button's right edge (pushed flush to this row's
+     right edge by justify-content: space-between) always lines up with the
+     book reader's right edge -- at any viewport width, not just the one it
+     was eyeballed at. A fixed pixel/margin offset can't do this: the row's
+     un-widened box tracks .container's *stepped* Bootstrap breakpoint
+     max-width, while the viewer tracks a smooth 80vw, so the gap between
+     them changes non-linearly as the window resizes. */
+  width: 80vw;
 }
 
 #viewerCanvas {
@@ -26,6 +34,34 @@ input[type="text"] {
   max-height: 5px;
 }
 
+/* .formStuff is a Bootstrap .row, and Bootstrap's grid CSS applies
+   `.row > * { width: 100%; flex-shrink: 0; }` to *every* direct child of a
+   row, not just .col-* ones -- so the form and the PDF button were each
+   being forced to the row's full width (and, with flex-wrap, onto separate
+   lines) regardless of their actual content. Overriding width back to auto
+   lets them size to their content and sit side by side. */
+.formStuff form,
+.formStuff .pdfButton {
+  width: auto;
+  flex: 0 1 auto;
+}
+
+/* now that the form sizes to its own content instead of a definite row
+   width, input.w-50's Bootstrap width (50% of an ancestor) has nothing
+   stable to resolve against and collapses to a tiny box. Pin it to a
+   viewport-relative width instead so the search box keeps a sensible,
+   predictable size. #formGroup's specificity beats Bootstrap's
+   .w-50 !important. */
+#formGroup input.w-50 {
+  width: 50vw !important;
+  max-width: 420px;
+}
+
+.pdfButton {
+  white-space: nowrap;
+  margin-left: 1vw;
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-family: "IM Fell English", serif;
@@ -33,8 +69,8 @@ input[type="text"] {
     margin-left: -2vw;
   }
 
-  .formStuff {
-    margin-bottom: 2vh;
-    margin-left: -5vw;
+  .pdfButton {
+    margin-left: 0;
+    margin-top: 1vh;
   }
 }
