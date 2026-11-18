@@ -6,7 +6,15 @@ h1 {
 
 .formStuff {
   margin-bottom: 2vh;
-  margin-left: -2vw;
+  /* match #viewerCanvas's width formula (80vw) exactly, anchored at the same
+     left edge, so the PDF button's right edge (pushed flush to this row's
+     right edge by justify-content: space-between) always lines up with the
+     book reader's right edge -- at any viewport width, not just the one it
+     was eyeballed at. A fixed pixel/margin offset can't do this: the row's
+     un-widened box tracks .container's *stepped* Bootstrap breakpoint
+     max-width, while the viewer tracks a smooth 80vw, so the gap between
+     them changes non-linearly as the window resizes. */
+  width: 80vw;
 }
 
 #viewerCanvas {
@@ -59,11 +67,6 @@ input[type="text"] {
     font-family: "IM Fell English", serif;
     font-size: 8vw;
     margin-left: -2vw;
-  }
-
-  .formStuff {
-    margin-bottom: 2vh;
-    margin-left: -5vw;
   }
 
   .pdfButton {
