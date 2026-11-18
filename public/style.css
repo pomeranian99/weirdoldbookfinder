@@ -62,6 +62,17 @@ input[type="text"] {
   margin-left: 1vw;
 }
 
+/* two label variants baked into the markup -- the full icon + "Get PDF for
+   this book" text for normal-width screens, and a bare "PDF"/"No PDF" for
+   narrow ones, so the button still fits on the same row as the search box
+   instead of wrapping onto its own line. Only one is ever shown; CSS picks
+   which (same max-width: 768px breakpoint the rest of the page already
+   uses), rather than detecting "mobile" via JS/user-agent -- viewport width
+   is what actually determines whether it fits. */
+.pdfLabelShort {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-family: "IM Fell English", serif;
@@ -69,8 +80,16 @@ input[type="text"] {
     margin-left: -2vw;
   }
 
+  .pdfIcon,
+  .pdfLabelFull {
+    display: none;
+  }
+
+  .pdfLabelShort {
+    display: inline;
+  }
+
   .pdfButton {
-    margin-left: 0;
-    margin-top: 1vh;
+    margin-left: 1vw;
   }
 }

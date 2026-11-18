@@ -25,9 +25,9 @@ body
       </div>
       </form>
       if pdfAvailable
-        <a class="btn btn-outline-dark pdfButton" href="#{pdfLink}" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Get PDF for this book</a>
+        <a class="btn btn-outline-dark pdfButton" href="#{pdfLink}" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o pdfIcon"></i><span class="pdfLabelFull">Get PDF for this book</span><span class="pdfLabelShort">PDF</span></a>
       else
-        <button class="btn btn-outline-secondary pdfButton" disabled type="button"><i class="fa fa-file-pdf-o"></i> No PDF available</button>
+        <button class="btn btn-outline-secondary pdfButton" disabled type="button"><i class="fa fa-file-pdf-o pdfIcon"></i><span class="pdfLabelFull">No PDF available</span><span class="pdfLabelShort">No PDF</span></button>
 
     .row
       #viewerCanvas
